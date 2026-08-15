@@ -1,0 +1,51 @@
+// InstaPay
+package Day2;
+import java.util.Scanner;
+
+public class InstaPay {
+    // What we have?
+    static double requiredSalary = 25.000;
+    static int requiredCreditScore = 700;
+    static Scanner scanner = new Scanner(System.in);
+
+    public static void main(String[] args) {
+
+        // What we need to get?
+        double salary = getSalary();
+        int creditScore = getCreditScore();
+        boolean qualified = isQualified(salary, creditScore);
+        notifyUser(qualified);
+        scanner.close();
+    }
+
+    public static double getSalary() {
+        System.out.println("Please enter your salary: ");
+        double salary = scanner.nextDouble();
+        return salary;
+    }
+
+    public static int getCreditScore() {
+        System.out.println("Please enter your credit score: ");
+        int creditScore = scanner.nextInt();
+        return creditScore;
+    }
+
+    public static boolean isQualified(double salary, int creditScore) {
+        if (salary >= requiredSalary && creditScore >= requiredCreditScore) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public static void notifyUser (boolean isQualified){
+        if (isQualified){
+            System.out.println("Congrats! ");
+        }
+        else {
+            System.out.println("Sorry! ");
+
+        }
+    }
+
+}
